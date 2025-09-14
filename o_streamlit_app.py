@@ -8,7 +8,7 @@ import plotly.express as px
 
 # ------------------ Page Config ----------------
 st.set_page_config(
-    page_title="FraudWatch Africa",
+    page_title="Kenya Fraud Detection",
     page_icon="💳",
     layout="wide"
 )
@@ -21,7 +21,7 @@ if page == "Home":
     st.title("💳 Kenya Fraud Detection")
     st.image("assets/fraud_detection_banner.png", use_container_width=True)
     st.markdown("""
-    Welcome to **FraudWatch Africa** – your one-stop dashboard for detecting anomalies 
+    Welcome!! This is your one-stop dashboard for detecting anomalies 
     and fraudulent transactions in Kenya. Explore dashboards, predict transactions, 
     and download reports with ease.
     """)
