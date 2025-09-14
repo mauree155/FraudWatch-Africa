@@ -19,16 +19,12 @@ page = st.sidebar.selectbox("Navigate", ["Home", "Dashboard", "About"])
 # ------------------ Home Page ----------------
 if page == "Home":
     st.title("🇰🇪 Kenya Fraud Detection App")
-    st.image(
-        "assets/fraud_detection_banner.png", 
-        use_container_width=True
-    )
+    st.image("assets/fraud_detection_banner.png", use_container_width=True)
     st.markdown("""
     Welcome to **Kenya Fraud Detection App** – your one-stop dashboard for detecting anomalies 
     and fraudulent transactions in Kenya. Explore dashboards, predict transactions, 
     and download reports with ease.
     """)
-
 
 # ------------------ About Page --------------
 elif page == "About":
@@ -61,7 +57,6 @@ elif page == "About":
     This project has given us the opportunity to **gain hands-on experience**, strengthen teamwork, and develop skills in fraud detection, machine learning, and dashboard development.  
     """)
 
-
 # ------------------ Dashboard & Predictions ----------------
 elif page == "Dashboard":
     st.sidebar.header("Filter Transactions")
@@ -72,15 +67,9 @@ elif page == "Dashboard":
     locations = df_sample['location'].unique()
     user_types = df_sample['user_type'].unique()
 
-    selected_types = st.sidebar.multiselect(
-        "Transaction Type", transaction_types, default=list(transaction_types)
-    )
-    selected_locations = st.sidebar.multiselect(
-        "Location", locations, default=list(locations)
-    )
-    selected_users = st.sidebar.multiselect(
-        "User Type", user_types, default=list(user_types)
-    )
+    selected_types = st.sidebar.multiselect("Transaction Type", transaction_types, default=list(transaction_types))
+    selected_locations = st.sidebar.multiselect("Location", locations, default=list(locations))
+    selected_users = st.sidebar.multiselect("User Type", user_types, default=list(user_types))
 
     # ------------------ Fetch filtered transactions from FastAPI ------------------
     def get_filtered_transactions(types, locations, users, limit=1000):
@@ -189,7 +178,7 @@ elif page == "Dashboard":
         st.markdown("Upload a CSV with your transactions to get anomaly predictions.")
 
         uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
-        
+    
         if uploaded_file is not None:
             batch_df = pd.read_csv(uploaded_file)
             st.dataframe(batch_df.head())
