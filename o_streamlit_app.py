@@ -21,7 +21,7 @@ if page == "Home":
     st.title("🇰🇪 Kenya Fraud Detection App")
     st.image(
         "assets/fraud_detection_banner.png", 
-       use_container_width=True
+        use_container_width=True
     )
     st.markdown("""
     Welcome to **Kenya Fraud Detection App** – your one-stop dashboard for detecting anomalies 
@@ -146,42 +146,42 @@ elif page == "Dashboard":
         st.markdown("## 💡 Predict Single Transaction")
 
         transaction_type_input = st.selectbox("Transaction Type", transaction_types)
-    amount_input = st.number_input("Transaction Amount", min_value=0.0, value=1000.0)
-    location_input = st.selectbox("Location", locations)
-    device_input = st.selectbox("Device Type", df_sample['device_type'].unique())
-    network_input = st.selectbox("Network Provider", df_sample['network_provider'].unique())
-    user_type_input = st.selectbox("User Type", user_types)
+        amount_input = st.number_input("Transaction Amount", min_value=0.0, value=1000.0)
+        location_input = st.selectbox("Location", locations)
+        device_input = st.selectbox("Device Type", df_sample['device_type'].unique())
+        network_input = st.selectbox("Network Provider", df_sample['network_provider'].unique())
+        user_type_input = st.selectbox("User Type", user_types)
 
-    # Show Yes/No in UI but map to 0/1
-    is_foreign_input = st.selectbox("Foreign Number?", ["No", "Yes"])
-    sim_swap_input = st.selectbox("Recently Swapped SIM?", ["No", "Yes"])
-    multiple_accounts_input = st.selectbox("Has Multiple Accounts?", ["No", "Yes"])
+        # Show Yes/No in UI but map to 0/1
+        is_foreign_input = st.selectbox("Foreign Number?", ["No", "Yes"])
+        sim_swap_input = st.selectbox("Recently Swapped SIM?", ["No", "Yes"])
+        multiple_accounts_input = st.selectbox("Has Multiple Accounts?", ["No", "Yes"])
 
-    if st.button("Predict Transaction"):
-        # ✅ Map Yes/No -> 0/1
-        input_data = {
-            "transaction_type": transaction_type_input,
-            "amount": amount_input,
-            "location": location_input,
-            "device_type": device_input,
-            "network_provider": network_input,
-            "user_type": user_type_input,
-            "is_foreign_number": 1 if is_foreign_input == "Yes" else 0,
-            "is_sim_recently_swapped": 1 if sim_swap_input == "Yes" else 0,
-            "has_multiple_accounts": 1 if multiple_accounts_input == "Yes" else 0,
-        }
+        if st.button("Predict Transaction"):
+            # ✅ Map Yes/No -> 0/1
+            input_data = {
+                "transaction_type": transaction_type_input,
+                "amount": amount_input,
+                "location": location_input,
+                "device_type": device_input,
+                "network_provider": network_input,
+                "user_type": user_type_input,
+                "is_foreign_number": 1 if is_foreign_input == "Yes" else 0,
+                "is_sim_recently_swapped": 1 if sim_swap_input == "Yes" else 0,
+                "has_multiple_accounts": 1 if multiple_accounts_input == "Yes" else 0,
+            }
 
-        try:
-            response = requests.post("https://kenya-fraud-detection.onrender.com/predict", json=input_data)
-            result = response.json()
+            try:
+                response = requests.post("https://kenya-fraud-detection.onrender.com/predict", json=input_data)
+                result = response.json()
 
-            if result["is_anomaly"] == 1:
-                st.error(f"⚠️ This transaction can be a fraud! Score: {result['anomaly_score']:.3f}")
-            else:
-                st.success(f"✅ This transaction looks normal. Score: {result['anomaly_score']:.3f}")
+                if result["is_anomaly"] == 1:
+                    st.error(f"⚠️ This transaction can be a fraud! Score: {result['anomaly_score']:.3f}")
+                else:
+                    st.success(f"✅ This transaction looks normal. Score: {result['anomaly_score']:.3f}")
 
-        except Exception as e:
-            st.error(f"Error calling API: {e}")
+            except Exception as e:
+                st.error(f"Error calling API: {e}")
 
     # ------------------ Tab 3: Batch Predict ------------------
     with tab3:
@@ -189,39 +189,39 @@ elif page == "Dashboard":
         st.markdown("Upload a CSV with your transactions to get anomaly predictions.")
 
         uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
-    
-    if uploaded_file is not None:
-        batch_df = pd.read_csv(uploaded_file)
-        st.dataframe(batch_df.head())
+        
+        if uploaded_file is not None:
+            batch_df = pd.read_csv(uploaded_file)
+            st.dataframe(batch_df.head())
 
-        if st.button("Predict Batch"):
-            # ✅ Convert Yes/No to 0/1 if present
-            mapping = {"Yes": 1, "No": 0}
-            for col in ["is_foreign_number", "is_sim_recently_swapped", "has_multiple_accounts"]:
-                if col in batch_df.columns:
-                    batch_df[col] = batch_df[col].map(mapping).fillna(batch_df[col])
+            if st.button("Predict Batch"):
+                # ✅ Convert Yes/No to 0/1 if present
+                mapping = {"Yes": 1, "No": 0}
+                for col in ["is_foreign_number", "is_sim_recently_swapped", "has_multiple_accounts"]:
+                    if col in batch_df.columns:
+                        batch_df[col] = batch_df[col].map(mapping).fillna(batch_df[col])
 
-            # Convert CSV rows to list of dicts for FastAPI
-            transactions_list = batch_df.to_dict(orient="records")
-            batch_input = {"transactions": transactions_list}
+                # Convert CSV rows to list of dicts for FastAPI
+                transactions_list = batch_df.to_dict(orient="records")
+                batch_input = {"transactions": transactions_list}
 
-            try:
-                response = requests.post("https://kenya-fraud-detection.onrender.com/predict_batch", json=batch_input)
-                results = response.json()["results"]
+                try:
+                    response = requests.post("https://kenya-fraud-detection.onrender.com/predict_batch", json=batch_input)
+                    results = response.json()["results"]
 
-                # Add predictions back to DataFrame
-                batch_df['is_anomaly'] = [r['is_anomaly'] for r in results]
-                batch_df['anomaly_score'] = [r['anomaly_score'] for r in results]
+                    # Add predictions back to DataFrame
+                    batch_df['is_anomaly'] = [r['is_anomaly'] for r in results]
+                    batch_df['anomaly_score'] = [r['anomaly_score'] for r in results]
 
-                st.success("Batch predictions completed!")
-                st.dataframe(batch_df.head())
+                    st.success("Batch predictions completed!")
+                    st.dataframe(batch_df.head())
 
-                st.download_button(
-                    "Download Batch Predictions CSV",
-                    batch_df.to_csv(index=False).encode(),
-                    "batch_predictions.csv",
-                    "text/csv"
-                )
+                    st.download_button(
+                        "Download Batch Predictions CSV",
+                        batch_df.to_csv(index=False).encode(),
+                        "batch_predictions.csv",
+                        "text/csv"
+                    )
 
-            except Exception as e:
-                st.error(f"Error calling API: {e}")
+                except Exception as e:
+                    st.error(f"Error calling API: {e}")
