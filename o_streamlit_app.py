@@ -18,7 +18,7 @@ page = st.sidebar.selectbox("Navigate", ["Home", "Dashboard", "About"])
 
 # ------------------ Home Page ----------------
 if page == "Home":
-    st.title(""🇰🇪 Kenya Fraud Detection App")
+    st.title("🇰🇪 Kenya Fraud Detection App")
     st.image(
         "assets/fraud_detection_banner.png", 
        use_container_width=True
