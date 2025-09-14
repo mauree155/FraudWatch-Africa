@@ -91,7 +91,7 @@ elif page == "Dashboard":
             "limit": limit
         }
         try:
-            response = requests.get("http://127.0.0.1:8000/transactions", params=params)
+            response = requests.get("https://kenya-fraud-detection.onrender.com/transactions", params=params)
             df = pd.DataFrame(response.json())
             return df
         except Exception as e:
@@ -172,7 +172,7 @@ elif page == "Dashboard":
         }
 
         try:
-            response = requests.post("http://127.0.0.1:8000/predict", json=input_data)
+            response = requests.post("https://kenya-fraud-detection.onrender.com/predict", json=input_data)
             result = response.json()
 
             if result["is_anomaly"] == 1:
@@ -206,7 +206,7 @@ elif page == "Dashboard":
             batch_input = {"transactions": transactions_list}
 
             try:
-                response = requests.post("http://127.0.0.1:8000/predict_batch", json=batch_input)
+                response = requests.post("https://kenya-fraud-detection.onrender.com/predict_batch", json=batch_input)
                 results = response.json()["results"]
 
                 # Add predictions back to DataFrame
