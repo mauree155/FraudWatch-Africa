@@ -8,8 +8,8 @@ import plotly.express as px
 
 # ------------------ Page Config ----------------
 st.set_page_config(
-    page_title="Kenya Fraud Detection App",
-    page_icon="🇰🇪",
+    page_title="FraudWatch Africa",
+    page_icon="💳",
     layout="wide"
 )
 
@@ -18,10 +18,10 @@ page = st.sidebar.selectbox("Navigate", ["Home", "Dashboard", "About"])
 
 # ------------------ Home Page ----------------
 if page == "Home":
-    st.title("🇰🇪 Kenya Fraud Detection App")
+    st.title("💳 Kenya Fraud Detection")
     st.image("assets/fraud_detection_banner.png", use_container_width=True)
     st.markdown("""
-    Welcome to **Kenya Fraud Detection App** – your one-stop dashboard for detecting anomalies 
+    Welcome to **FraudWatch Africa** – your one-stop dashboard for detecting anomalies 
     and fraudulent transactions in Kenya. Explore dashboards, predict transactions, 
     and download reports with ease.
     """)
