@@ -208,7 +208,7 @@ The **FraudWatch Africa** dashboard provides an interactive interface for explor
   </a>
 </p>
 
-### 8. Dashboard Features
+### Dashboard Features
 
 - **Home Page** – Project introduction and banner.  
 - **Dashboard Page** – KPIs, flagged anomalies, filters, and anomaly visualizations.  
@@ -225,13 +225,13 @@ The **FraudWatch Africa** dashboard provides an interactive interface for explor
 
 ![FraudWatch Africa Dashboard](https://github.com/user-attachments/assets/076c8c9a-1e27-4112-89dc-967884fc0684)
 
-## 9. Tools & Technologies  
+## 8. Tools & Technologies  
 
 Here’s an overview of the tools and technologies used in this project:  
 
-![Fraud Detection Stack](fraud_detection_stack.png)
+![Fraud Detection Stack]([fraud_detection_stack.png](https://github.com/mauree155/FraudWatch-Africa/blob/main/assets/Project%20tools%20))
 
-## 10. Conclusion  
+## 9. Conclusion  
 
 This project demonstrated how **unsupervised learning** can be applied to the challenge of fraud detection in mobile money platforms, especially in environments where **labeled fraud data is scarce**.  
 
@@ -243,7 +243,7 @@ By leveraging **Isolation Forest**, we successfully identified anomalous transac
 
 The solution emphasizes how **data science can drive financial security** in African markets, protecting millions of users and strengthening trust in mobile money systems.  
 
-## 11. Future Work  
+## 10. Future Work  
 
 While the current system provides a strong foundation, there are opportunities to make it more powerful and robust:  
 
@@ -255,8 +255,6 @@ While the current system provides a strong foundation, there are opportunities t
 - **Explainability:** Add interpretable AI components so stakeholders can understand why a transaction is flagged as suspicious.  
 
 This roadmap ensures the solution continues evolving into a **production-grade fraud detection system** that adapts to emerging threats.  
-
-
 
 ## 12. How to Run the Project  
 
@@ -290,6 +288,16 @@ streamlit run app/streamlit_app.py
 ```
 Dashboard available at: http://localhost:8501
 
+
+## 11. cknowledgments  
+
+This project was carried out as part of the **Dataverse Africa Internship Program**.  
+Special thanks to our mentors and teammates for their guidance and collaboration.  
+
+### 👥 Team Members  
+- **[Maureen Akunna Okoro](https://www.linkedin.com/in/maureenokoro)** – Team Lead | Data Analyst / Data Scientist  
+- **Masheida Dzimaba** – Data Scientist  
+- **Nasiru Ibrahim** – Data Scientist  
 
 
 
