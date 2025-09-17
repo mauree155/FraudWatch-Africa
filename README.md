@@ -200,7 +200,7 @@ The **FraudWatch Africa** dashboard provides an interactive interface for explor
 ### Live Demo
 
 <p align="left">
-  <a href="https://fraudwatchafrica.streamlit.app" target="_blank">
+  <a href="https://fraudwatch-africa.streamlit.app" target="_blank">
     <img src="https://img.shields.io/badge/Streamlit-Dashboard-red?style=for-the-badge&logo=streamlit" alt="Streamlit App"/>
   </a>
   <a href="https://kenya-fraud-detection.onrender.com" target="_blank">
@@ -289,6 +289,7 @@ API available at: http://127.0.0.1:8000/docs
 streamlit run app/streamlit_app.py
 ```
 Dashboard available at: http://localhost:8501
+
 
 
 
