@@ -253,4 +253,10 @@ Sample Response:
 }
 ```
 
+## 🛠️ Tools & Technologies  
+
+Here’s an overview of the tools and technologies used in this project:  
+
+![Fraud Detection Stack](https://sdmntprwestus3.oaiusercontent.com/files/00000000-7cd8-61fd-b9a9-0b8ec9c35c3f/raw?se=2025-09-17T21%3A28%3A10Z&sp=r&sv=2024-08-04&sr=b&scid=03799171-aaeb-55b0-bb18-89d92b4da473&skoid=f28c0102-4d9d-4950-baf0-4a8e5f6cf9d4&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-09-17T17%3A18%3A58Z&ske=2025-09-18T17%3A18%3A58Z&sks=b&skv=2024-08-04&sig=Shb8AeBM87B9IB/unIjB3F7DOjvcwT5TYNzYPCmS8SE%3D)
+
 
