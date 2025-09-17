@@ -36,7 +36,7 @@ elif page == "About":
     - **Maureen Akunna Okoro** – Data Analyst/Data Scientist (Team Lead)  
       ✉️ [okoromaureen590@gmail.com](mailto:okoromaureen590@gmail.com)  
 
-    - **Masheida Dzimaba** – Data Scientist  
+    - **Masheia Dzimba** – Data Scientist  
       ✉️ [mdzimba@mail.yu.edu](mailto:mdzimba@mail.yu.edu)  
 
     - **Nasiru Ibrahim** – Data Scientist  
