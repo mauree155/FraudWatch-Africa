@@ -1,7 +1,5 @@
 # FraudWatch Africa: Unsupervised Mobile Money Transaction Fraud Detection
 
-<img width="1590" height="650" alt="screenshot of app" src="https://github.com/user-attachments/assets/076c8c9a-1e27-4112-89dc-967884fc0684" />
-
 ## Table of Contents   
 1. [Project Background](#project-background)  
 2. [Dataset](#dataset)  
@@ -195,68 +193,44 @@ This indicates that no single network provider is disproportionately affected by
 - Anomalies are concentrated in **nighttime hours**, **weekends**, specific **locations**, **transaction types**, and **device types**.  
 - The model’s predictions align with observed behavioral patterns, indicating the unsupervised approach is effective for fraud detection without labeled data.
 
-## 7. Live Demo and Deployment
+## 7. Dashboard & Deployment
 
-### 7.1 Streamlit Dashboard – FraudWatch Africa
+The **FraudWatch Africa** dashboard provides an interactive interface for exploring, monitoring, and predicting fraudulent transactions in real-time. It is built using **Streamlit** for the frontend and **FastAPI** for backend predictions.
 
-FraudWatch Africa is an **interactive web application** built using Streamlit for monitoring and predicting anomalous transactions on Kenyan mobile money platforms.
+### 🌍 Live Demo
 
-**Features:**
-- **Home Page:** Project overview with a banner image and welcome message.
-- **Dashboard Tab:**  
-  - Displays total transactions, flagged anomalies, and % of anomalies.  
-  - Interactive table of flagged transactions with **CSV download** option.  
-  - Visualizations: anomalies by transaction type and location.  
-- **Predict Single Transaction Tab:**  
-  - Input transaction details to get a real-time anomaly prediction.  
-  - Handles categorical features (foreign number, SIM swap, multiple accounts) automatically.  
-- **Batch Prediction Tab:**  
-  - Upload CSV files with multiple transactions for bulk anomaly predictions.  
-  - Returns predicted anomalies and scores, with **downloadable results**.
+<p align="left">
+  <a href="https://fraudwatchafrica.streamlit.app" target="_blank">
+    <img src="https://img.shields.io/badge/Streamlit-Dashboard-red?style=for-the-badge&logo=streamlit" alt="Streamlit App"/>
+  </a>
+  <a href="https://kenya-fraud-detection.onrender.com" target="_blank">
+    <img src="https://img.shields.io/badge/FastAPI-Endpoint-green?style=for-the-badge&logo=fastapi" alt="FastAPI Endpoint"/>
+  </a>
+</p>
 
-**Running Locally:**
-```bash
-streamlit run app/streamlit_app.py
-```
+### Dashboard Features
 
-The FastAPI backend enables real-time detection and batch processing of transactions:
+- **Home Page** – Project introduction and banner.  
+- **Dashboard Page** – KPIs, flagged anomalies, filters, and anomaly visualizations.  
+- **Predict Transaction Page** – Enter transaction details for single prediction.  
+- **Batch Prediction Page** – Upload CSV for batch fraud predictions.  
 
-Endpoints:
+### Deployment Setup
 
-POST /predict – Predicts a single transaction (normal vs. anomalous).
+- **Streamlit** serves as the interactive dashboard frontend.  
+- **FastAPI** powers the backend with REST API endpoints.  
+- Communication is seamless: the dashboard sends requests to FastAPI for anomaly predictions in real time.  
 
-POST /predict_batch – Predicts multiple transactions from uploaded CSV.
+### Screenshot  
 
-GET /transactions – Retrieves filtered transactions for dashboard visualization.
-
-Sample Request for Single Transaction:
-```
-{
-  "transaction_type": "Send Money",
-  "amount": 1200.0,
-  "location": "Nairobi",
-  "device_type": "iOS",
-  "network_provider": "Safaricom",
-  "user_type": "Agent",
-  "is_foreign_number": 0,
-  "is_sim_recently_swapped": 1,
-  "has_multiple_accounts": 0
-}
-
-```
-Sample Response:
-```
-{
-  "transaction_id": 12345,
-  "is_anomaly": 1,
-  "anomaly_score": 0.87
-}
-```
+![FraudWatch Africa Dashboard](https://github.com/user-attachments/assets/076c8c9a-1e27-4112-89dc-967884fc0684)
 
 ## 🛠️ Tools & Technologies  
 
 Here’s an overview of the tools and technologies used in this project:  
 
-![Fraud Detection Stack](https://sdmntprwestus3.oaiusercontent.com/files/00000000-7cd8-61fd-b9a9-0b8ec9c35c3f/raw?se=2025-09-17T21%3A28%3A10Z&sp=r&sv=2024-08-04&sr=b&scid=03799171-aaeb-55b0-bb18-89d92b4da473&skoid=f28c0102-4d9d-4950-baf0-4a8e5f6cf9d4&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-09-17T17%3A18%3A58Z&ske=2025-09-18T17%3A18%3A58Z&sks=b&skv=2024-08-04&sig=Shb8AeBM87B9IB/unIjB3F7DOjvcwT5TYNzYPCmS8SE%3D)
+![Fraud Detection Stack](fraud_detection_stack.png)
+
+
 
 
