@@ -197,7 +197,7 @@ This indicates that no single network provider is disproportionately affected by
 
 The **FraudWatch Africa** dashboard provides an interactive interface for exploring, monitoring, and predicting fraudulent transactions in real-time. It is built using **Streamlit** for the frontend and **FastAPI** for backend predictions.
 
-### 🌍 Live Demo
+### Live Demo
 
 <p align="left">
   <a href="https://fraudwatchafrica.streamlit.app" target="_blank">
@@ -208,7 +208,7 @@ The **FraudWatch Africa** dashboard provides an interactive interface for explor
   </a>
 </p>
 
-### Dashboard Features
+### 8. Dashboard Features
 
 - **Home Page** – Project introduction and banner.  
 - **Dashboard Page** – KPIs, flagged anomalies, filters, and anomaly visualizations.  
@@ -225,11 +225,71 @@ The **FraudWatch Africa** dashboard provides an interactive interface for explor
 
 ![FraudWatch Africa Dashboard](https://github.com/user-attachments/assets/076c8c9a-1e27-4112-89dc-967884fc0684)
 
-## 🛠️ Tools & Technologies  
+## 9. Tools & Technologies  
 
 Here’s an overview of the tools and technologies used in this project:  
 
 ![Fraud Detection Stack](fraud_detection_stack.png)
+
+## 10. Conclusion  
+
+This project demonstrated how **unsupervised learning** can be applied to the challenge of fraud detection in mobile money platforms, especially in environments where **labeled fraud data is scarce**.  
+
+By leveraging **Isolation Forest**, we successfully identified anomalous transactions that may represent fraudulent activity. The results highlighted:  
+
+- Strong potential for detecting unusual transaction behaviors in real time.  
+- Practical use of dashboards (Streamlit) for monitoring and decision support.  
+- Seamless integration with FastAPI for deployment, ensuring accessibility and scalability.  
+
+The solution emphasizes how **data science can drive financial security** in African markets, protecting millions of users and strengthening trust in mobile money systems.  
+
+## 11. Future Work  
+
+While the current system provides a strong foundation, there are opportunities to make it more powerful and robust:  
+
+- **Enhanced Models:** Experiment with advanced techniques such as Autoencoders, One-Class SVM, and Graph Neural Networks for improved anomaly detection.  
+- **Feature Engineering:** Incorporate additional features like transaction velocity, device fingerprinting, and geospatial tracking to capture more complex fraud patterns.  
+- **Scalability:** Deploy the system on cloud platforms with distributed data pipelines (e.g., Apache Kafka, Spark) to handle millions of transactions in real time.  
+- **User Feedback Loop:** Integrate mechanisms for human investigators to label flagged transactions, creating feedback that strengthens the model over time.  
+- **Cross-Border Expansion:** Extend beyond Kenya to support fraud detection across multiple African mobile money markets.  
+- **Explainability:** Add interpretable AI components so stakeholders can understand why a transaction is flagged as suspicious.  
+
+This roadmap ensures the solution continues evolving into a **production-grade fraud detection system** that adapts to emerging threats.  
+
+
+
+## 12. How to Run the Project  
+
+If you’d like to explore the project locally, follow these steps:  
+
+### 1️⃣ Clone the Repository  
+```bash
+git clone https://github.com/<your-username>/<your-repo>.git
+cd <your-repo>
+```
+2️⃣ Create a Virtual Environment
+```
+python -m venv venv
+source venv/bin/activate   # On Mac/Linux
+venv\Scripts\activate     # On Windows
+```
+
+3️⃣ Install Dependencies
+```
+pip install -r requirements.txt
+```
+4️⃣ Run the FastAPI Backend
+```
+uvicorn app.main:app --reload
+```
+API available at: http://127.0.0.1:8000/docs
+
+5️⃣ Run the Streamlit Dashboard
+```
+streamlit run app/streamlit_app.py
+```
+Dashboard available at: http://localhost:8501
+
 
 
 
