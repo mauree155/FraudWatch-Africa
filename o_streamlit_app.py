@@ -52,7 +52,7 @@ elif page == "About":
         },
         {
             "name": "Nasiru Ibrahim",
-            "role": "Data Scientist",
+            "role": "Data Analyst",
             "email": "mailto:nasiruibrahim3034@gmail.com",
             "linkedin": "https://www.linkedin.com/in/nasiru-ibrahim-89b489177",
             "color": "linear-gradient(135deg, #00c6ff 0%, #0072ff 100%)"
