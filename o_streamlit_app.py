@@ -28,34 +28,84 @@ if page == "Home":
 
 # ------------------ About Page --------------
 elif page == "About":
-    st.title("ℹ️ About Us")
+    st.title("About Us")
 
+    st.markdown("## Meet the Team")
+
+    # --- Team Member 1 ---
+    st.markdown("**Maureen Akunna Okoro** – Data Analyst / Data Scientist (Team Lead)")
+    st.markdown(
+        """
+        <a href="mailto:okoromaureen590@gmail.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" 
+            width="28" style="margin-right:10px;">
+        </a>
+        <a href="https://ng.linkedin.com/in/maureen-okoro-8a1972245" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
+            width="28">
+        </a>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.write("---")
+
+    # --- Team Member 2 ---
+    st.markdown("**Masheia Dzimba** – Data Scientist")
+    st.markdown(
+        """
+        <a href="mailto:mdzimba@mail.yu.edu" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" 
+            width="28" style="margin-right:10px;">
+        </a>
+        <a href="https://www.linkedin.com/in/masheia-d-965099121" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
+            width="28">
+        </a>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.write("---")
+
+    # --- Team Member 3 ---
+    st.markdown("**Nasiru Ibrahim** – Data Scientist")
+    st.markdown(
+        """
+        <a href="mailto:nasiruibrahim3034@gmail.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" 
+            width="28" style="margin-right:10px;">
+        </a>
+        <a href="https://www.linkedin.com/in/nasiru-ibrahim-89b489177" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
+            width="28">
+        </a>
+        """,
+        unsafe_allow_html=True
+    )
+
+    # --- About Section ---
     st.markdown("""
-    ## 👥 Team Members
-
-    - **Maureen Akunna Okoro** – Data Analyst/Data Scientist (Team Lead)  
-      ✉️ [okoromaureen590@gmail.com](mailto:okoromaureen590@gmail.com)  
-
-    - **Masheia Dzimba** – Data Scientist  
-      ✉️ [mdzimba@mail.yu.edu](mailto:mdzimba@mail.yu.edu)  
-
-    - **Nasiru Ibrahim** – Data Scientist  
-      ✉️ [nasiruibrahim3034@gmail.com](mailto:nasiruibrahim3034@gmail.com)  
-
     ---
+    ## Who We Are  
 
-    ## 💡 Who We Are  
-
-    We are **Data Science and Analytics Interns** with **Dataverse Africa**, passionate about applying data to fight fraud and uncover insights.  
+    We are a team of **Data Science and Analytics Interns at Dataverse Africa**, dedicated to using data for problem-solving and social impact.  
 
     ### What We Do  
-    - 🎯 Apply modern data science techniques in real-world projects  
-    - 🛡️ Build tools to detect fraud and anomalies in transactions  
-    - 🌍 Use data to empower communities and organizations  
+    - Apply advanced data science techniques to real-world projects  
+    - Develop tools for fraud detection and anomaly monitoring  
+    - Translate raw data into actionable insights for organizations and communities  
 
     ### Our Journey  
-    This project has given us the opportunity to **gain hands-on experience**, strengthen teamwork, and develop skills in fraud detection, machine learning, and dashboard development.  
-    """)
+    Through this project, we have:  
+    - Gained **hands-on experience** in fraud detection and data science  
+    - Strengthened our skills in **teamwork, research, and analysis**  
+    - Built practical expertise in **machine learning and dashboard development**  
+
+    ---
+    **Our Commitment:** We are committed to continuous learning, innovation, and building solutions that make a lasting impact.  
+    """, unsafe_allow_html=True)
+
 
 # ------------------ Dashboard & Predictions ----------------
 elif page == "Dashboard":
