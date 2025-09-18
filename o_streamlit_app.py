@@ -28,89 +28,93 @@ if page == "Home":
 
 # ------------------ About Page --------------
 elif page == "About":
-st.title("👥 Meet the Team")
+    st.title("👥 Meet the Team")
 
-# Card CSS styling
-st.markdown(
-    """
-    <style>
-    .team-card {
-        background-color: #f9f9f9;
-        border: 1px solid #e0e0e0;
-        border-radius: 12px;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
-    }
-    .team-card h3 {
-        margin-bottom: 5px;
-    }
-    .team-card p {
-        font-size: 14px;
-        color: #666;
-        margin-bottom: 10px;
-    }
-    .icon-link img {
-        margin: 0 8px;
-        transition: transform 0.2s;
-    }
-    .icon-link img:hover {
-        transform: scale(1.1);
-    }
-    </style>
-    """, unsafe_allow_html=True
-)
-
-# 3 columns
-col1, col2, col3 = st.columns(3)
-
-with col1:
+    # Card CSS styling
     st.markdown(
         """
-        <div class="team-card">
-            <h3>Maureen Akunna Okoro</h3>
-            <p>Team Lead · Data Analyst / Scientist</p>
-            <a class="icon-link" href="mailto:okoromaureen590@gmail.com" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="28">
-            </a>
-            <a class="icon-link" href="https://ng.linkedin.com/in/maureen-okoro-8a1972245" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="28">
-            </a>
-        </div>
-        """, unsafe_allow_html=True
+        <style>
+        .team-card {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+        }
+        .team-card h3 {
+            margin-bottom: 5px;
+        }
+        .team-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .icon-link img {
+            margin: 0 8px;
+            transition: transform 0.2s;
+        }
+        .icon-link img:hover {
+            transform: scale(1.1);
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
     )
 
-with col2:
-    st.markdown(
-        """
-        <div class="team-card">
-            <h3>Masheia Dzimba</h3>
-            <p>Data Scientist</p>
-            <a class="icon-link" href="mailto:mdzimba@mail.yu.edu" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="28">
-            </a>
-            <a class="icon-link" href="https://www.linkedin.com/in/masheia-d-965099121" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="28">
-            </a>
-        </div>
-        """, unsafe_allow_html=True
-    )
+    # 3 columns
+    col1, col2, col3 = st.columns(3)
 
-with col3:
-    st.markdown(
-        """
-        <div class="team-card">
-            <h3>Nasiru Ibrahim</h3>
-            <p>Data Scientist</p>
-            <a class="icon-link" href="mailto:nasiruibrahim3034@gmail.com" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="28">
-            </a>
-            <a class="icon-link" href="https://www.linkedin.com/in/nasiru-ibrahim-89b489177" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="28">
-            </a>
-        </div>
-        """, unsafe_allow_html=True
-    )
+    with col1:
+        st.markdown(
+            """
+            <div class="team-card">
+                <h3>Maureen Akunna Okoro</h3>
+                <p>Team Lead · Data Analyst / Scientist</p>
+                <a class="icon-link" href="mailto:okoromaureen590@gmail.com" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="28">
+                </a>
+                <a class="icon-link" href="https://ng.linkedin.com/in/maureen-okoro-8a1972245" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="28">
+                </a>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+    with col2:
+        st.markdown(
+            """
+            <div class="team-card">
+                <h3>Masheia Dzimba</h3>
+                <p>Data Scientist</p>
+                <a class="icon-link" href="mailto:mdzimba@mail.yu.edu" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="28">
+                </a>
+                <a class="icon-link" href="https://www.linkedin.com/in/masheia-d-965099121" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="28">
+                </a>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+    with col3:
+        st.markdown(
+            """
+            <div class="team-card">
+                <h3>Nasiru Ibrahim</h3>
+                <p>Data Scientist</p>
+                <a class="icon-link" href="mailto:nasiruibrahim3034@gmail.com" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="28">
+                </a>
+                <a class="icon-link" href="https://www.linkedin.com/in/nasiru-ibrahim-89b489177" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="28">
+                </a>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
     # --- About Section ---
     st.markdown("""
