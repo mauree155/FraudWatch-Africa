@@ -238,14 +238,11 @@ The **FraudWatch Africa** dashboard provides an interactive interface for explor
 <img width="1595" height="382" alt="screen 3 fraud" src="https://github.com/user-attachments/assets/d011dfff-8bf6-485d-9d3f-2d2919f6f269" />
 
 
-
-
-
 ## Tools & Technologies  
 
 Here’s an overview of the tools and technologies used in this project:  
 
-![Fraud Detection Stack](https://github.com/mauree155/FraudWatch-Africa/blob/main/assets/Project%20tools%20)
+<img width="600" height="700" alt="screen 3 fraud" src="https://github.com/mauree155/FraudWatch-Africa/blob/main/assets/Project%20tools%20" />
 
 ## Conclusion  
 
@@ -314,6 +311,7 @@ Special thanks to our mentors and teammates for their guidance and collaboration
 - **Maureen Akunna Okoro** – Team Lead | Data Analyst / Data Scientist  
 - **Masheida Dzimaba** – Data Scientist  
 - **Nasiru Ibrahim** – Data Analyst
+
 
 
 
