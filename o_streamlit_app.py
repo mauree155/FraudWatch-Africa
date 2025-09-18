@@ -132,26 +132,66 @@ elif page == "About":
 
 
     # --- About Section ---
-    st.markdown("""
-    ---
-    ## Who We Are  
+    
+    # Custom CSS for About section
+st.markdown("""
+    <style>
+    .about-section h2 {
+        font-size: 26px;
+        color: #222;
+        margin-bottom: 12px;
+    }
+    .about-section h3 {
+        font-size: 20px;
+        color: #333;
+        margin-top: 18px;
+        margin-bottom: 8px;
+    }
+    .about-section p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #444;
+        margin-bottom: 12px;
+    }
+    .about-section ul {
+        font-size: 15px;
+        color: #444;
+        margin-left: 20px;
+        margin-bottom: 12px;
+    }
+    .about-highlight {
+        font-weight: 600;
+        color: #2c3e50;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
-    We are a team of **Data Science and Analytics Interns at Dataverse Africa**, dedicated to using data for problem-solving and social impact.  
+# About Us content
+st.markdown("""
+<div class="about-section">
 
-    ### What We Do  
-    - Apply advanced data science techniques to real-world projects  
-    - Develop tools for fraud detection and anomaly monitoring  
-    - Translate raw data into actionable insights for organizations and communities  
+## About Us  
 
-    ### Our Journey  
-    Through this project, we have:  
-    - Gained **hands-on experience** in fraud detection and data science  
-    - Strengthened our skills in **teamwork, research, and analysis**  
-    - Built practical expertise in **machine learning and dashboard development**  
+We are a team of <span class="about-highlight">Data Science and Analytics Interns at Dataverse Africa</span>, passionate about transforming complex data into practical solutions. Our work focuses on <span class="about-highlight">fraud detection, anomaly monitoring, and turning raw information into insights</span> that drive meaningful impact.  
 
-    ---
-    **Our Commitment:** We are committed to continuous learning, innovation, and building solutions that make a lasting impact.  
-    """, unsafe_allow_html=True)
+### What We Do  
+- 🔍 Detect patterns and anomalies using advanced data science techniques  
+- 🛡️ Build tools that strengthen fraud prevention and risk management  
+- 📊 Deliver actionable insights through dashboards and data storytelling  
+
+### Our Journey  
+This project has allowed us to:  
+- Gain <span class="about-highlight">hands-on experience</span> in fraud detection, machine learning, and analytics  
+- Collaborate effectively as a <span class="about-highlight">multidisciplinary team</span>  
+- Develop skills that combine <span class="about-highlight">research, coding, and storytelling</span>  
+
+---
+
+### Our Commitment  
+We are committed to <span class="about-highlight">continuous learning, innovation, and creating solutions</span> that empower organizations and communities across Africa and beyond.  
+
+</div>
+""", unsafe_allow_html=True)
 
 
 # ------------------ Dashboard & Predictions ----------------
