@@ -57,7 +57,77 @@ elif page == "About":
             "color": "linear-gradient(135deg, #00c6ff 0%, #0072ff 100%)"
         }
     ]
+# CSS Styling (team cards + dim About section)
+    st.markdown(
+        """
+        <style>
+        .team-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 16px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            max-width: 240px;
+            margin: auto;
+        }
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+        .team-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 auto 10px auto;
+        }
+        .team-card h4 {
+            margin: 6px 0;
+            font-size: 15px;
+            color: #222;
+        }
+        .team-card p {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .icon-link img {
+            margin: 0 4px;
+            transition: transform 0.2s;
+        }
+        .icon-link img:hover {
+            transform: scale(1.15);
+        }
 
+        /* About Section - dim, small text */
+        .about-section {
+            color: #777;  /* dim grey */
+            font-size: 12px;  /* very small */
+            line-height: 1.4;
+        }
+        .about-section h2, .about-section h3 {
+            color: #666;  /* slightly darker for headings */
+            font-weight: normal;
+        }
+        .about-section ul {
+            margin-left: 18px;
+            margin-bottom: 8px;
+        }
+        .about-highlight {
+            font-weight: 500;
+            color: #555;  /* subtle highlight */
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+    
     # About Us section
     st.markdown("""
     ## About Us  
