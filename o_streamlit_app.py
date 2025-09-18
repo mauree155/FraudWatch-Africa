@@ -52,7 +52,7 @@ elif page == "About":
         },
         {
             "name": "Nasiru Ibrahim",
-            "role": "Data Analyst",
+            "role": "Data Scientist",
             "email": "mailto:nasiruibrahim3034@gmail.com",
             "linkedin": "https://www.linkedin.com/in/nasiru-ibrahim-89b489177",
             "color": "linear-gradient(135deg, #00c6ff 0%, #0072ff 100%)"
@@ -66,11 +66,11 @@ elif page == "About":
         .team-card {
             background: #ffffff;
             border-radius: 14px;
-            padding: 18px;
+            padding: 16px;
             text-align: center;
             box-shadow: 0 4px 14px rgba(0,0,0,0.06);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
-            max-width: 260px;
+            max-width: 240px;
             margin: auto;
         }
         .team-card:hover {
@@ -78,42 +78,70 @@ elif page == "About":
             box-shadow: 0 10px 20px rgba(0,0,0,0.12);
         }
         .team-avatar {
-            width: 54px;
-            height: 54px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             margin: 0 auto 10px auto;
         }
         .team-card h4 {
             margin: 6px 0;
-            font-size: 16px;
+            font-size: 15px;
             color: #222;
         }
         .team-card p {
-            font-size: 13px;
+            font-size: 12px;
             color: #555;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .icon-link img {
-            margin: 0 5px;
+            margin: 0 4px;
             transition: transform 0.2s;
         }
         .icon-link img:hover {
             transform: scale(1.15);
+        }
+
+        /* About Section */
+        .about-section h2 {
+            font-size: 22px;
+            color: #222;
+            margin-bottom: 10px;
+        }
+        .about-section h3 {
+            font-size: 18px;
+            color: #333;
+            margin-top: 16px;
+            margin-bottom: 6px;
+        }
+        .about-section p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #444;
+            margin-bottom: 10px;
+        }
+        .about-section ul {
+            font-size: 14px;
+            color: #444;
+            margin-left: 18px;
+            margin-bottom: 10px;
+        }
+        .about-highlight {
+            font-weight: 600;
+            color: #2c3e50;
         }
         </style>
         """,
         unsafe_allow_html=True
     )
 
-    # Layout
+    # Layout for team members
     cols = st.columns(3)
-
     for col, member in zip(cols, team):
         initials = "".join([n[0] for n in member["name"].split()][:2])  # e.g. MO
         col.markdown(f"""
@@ -122,77 +150,45 @@ elif page == "About":
             <h4>{member['name']}</h4>
             <p>{member['role']}</p>
             <a class="icon-link" href="{member['email']}" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="24">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="20">
             </a>
             <a class="icon-link" href="{member['linkedin']}" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="24">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="20">
             </a>
         </div>
         """, unsafe_allow_html=True)
 
+    st.markdown("<br><br>", unsafe_allow_html=True)  # space between team cards and about section
 
-    # --- About Section ---
-    
-    # Custom CSS for About section
-st.markdown("""
-    <style>
-    .about-section h2 {
-        font-size: 26px;
-        color: #222;
-        margin-bottom: 12px;
-    }
-    .about-section h3 {
-        font-size: 20px;
-        color: #333;
-        margin-top: 18px;
-        margin-bottom: 8px;
-    }
-    .about-section p {
-        font-size: 16px;
-        line-height: 1.6;
-        color: #444;
-        margin-bottom: 12px;
-    }
-    .about-section ul {
-        font-size: 15px;
-        color: #444;
-        margin-left: 20px;
-        margin-bottom: 12px;
-    }
-    .about-highlight {
-        font-weight: 600;
-        color: #2c3e50;
-    }
-    </style>
-""", unsafe_allow_html=True)
+    # About Section
+    st.markdown(
+        """
+        <div class="about-section">
 
-# About Us content
-st.markdown("""
-<div class="about-section">
+        ## About Us  
 
-## About Us  
+        We are a team of <span class="about-highlight">Data Science and Analytics Interns at Dataverse Africa</span>, passionate about transforming complex data into practical solutions. Our work focuses on <span class="about-highlight">fraud detection, anomaly monitoring, and turning raw information into insights</span> that drive meaningful impact.  
 
-We are a team of <span class="about-highlight">Data Science and Analytics Interns at Dataverse Africa</span>, passionate about transforming complex data into practical solutions. Our work focuses on <span class="about-highlight">fraud detection, anomaly monitoring, and turning raw information into insights</span> that drive meaningful impact.  
+        ### What We Do  
+        - 🔍 Detect patterns and anomalies using advanced data science techniques  
+        - 🛡️ Build tools that strengthen fraud prevention and risk management  
+        - 📊 Deliver actionable insights through dashboards and data storytelling  
 
-### What We Do  
-- 🔍 Detect patterns and anomalies using advanced data science techniques  
-- 🛡️ Build tools that strengthen fraud prevention and risk management  
-- 📊 Deliver actionable insights through dashboards and data storytelling  
+        ### Our Journey  
+        This project has allowed us to:  
+        - Gain <span class="about-highlight">hands-on experience</span> in fraud detection, machine learning, and analytics  
+        - Collaborate effectively as a <span class="about-highlight">multidisciplinary team</span>  
+        - Develop skills that combine <span class="about-highlight">research, coding, and storytelling</span>  
 
-### Our Journey  
-This project has allowed us to:  
-- Gain <span class="about-highlight">hands-on experience</span> in fraud detection, machine learning, and analytics  
-- Collaborate effectively as a <span class="about-highlight">multidisciplinary team</span>  
-- Develop skills that combine <span class="about-highlight">research, coding, and storytelling</span>  
+        ---
 
----
+        ### 🌟 Our Commitment  
+        We are committed to <span class="about-highlight">continuous learning, innovation, and creating solutions</span> that empower organizations and communities across Africa and beyond.  
 
-### Our Commitment  
-We are committed to <span class="about-highlight">continuous learning, innovation, and creating solutions</span> that empower organizations and communities across Africa and beyond.  
-
-</div>
-""", unsafe_allow_html=True)
-
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 # ------------------ Dashboard & Predictions ----------------
 elif page == "Dashboard":
