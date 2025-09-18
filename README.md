@@ -275,8 +275,9 @@ If you’d like to explore the project locally, follow these steps:
 
 ### 1️⃣ Clone the Repository  
 ```bash
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
+git clone https://github.com/mauree155/FraudWatch-Africa.git my-repo
+cd my-repo
+
 ```
 2️⃣ Create a Virtual Environment
 ```
@@ -297,7 +298,7 @@ API available at: http://127.0.0.1:8000/docs
 
 5️⃣ Run the Streamlit Dashboard
 ```
-streamlit run app/streamlit_app.py
+streamlit run o_streamlit_app.py
 ```
 Dashboard available at: http://localhost:8501
 
@@ -311,6 +312,7 @@ Special thanks to our mentors and teammates for their guidance and collaboration
 - **Maureen Akunna Okoro** – Team Lead | Data Analyst / Data Scientist  
 - **Masheida Dzimaba** – Data Scientist  
 - **Nasiru Ibrahim** – Data Analyst
+
 
 
 
