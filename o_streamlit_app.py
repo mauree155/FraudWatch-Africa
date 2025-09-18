@@ -30,6 +30,7 @@ if page == "Home":
     """)
 
 # ------------------ About Page ----------------
+# ------------------ About Page --------------
 elif page == "About":
     st.title("👥 Meet the Team")
 
@@ -57,7 +58,8 @@ elif page == "About":
             "color": "linear-gradient(135deg, #00c6ff 0%, #0072ff 100%)"
         }
     ]
-# CSS Styling (team cards + dim About section)
+
+    # CSS Styling (team cards + dim About section)
     st.markdown(
         """
         <style>
@@ -127,8 +129,29 @@ elif page == "About":
         """,
         unsafe_allow_html=True
     )
-    
-    # About Us section
+
+    # Layout for team members
+    cols = st.columns(3)
+    for col, member in zip(cols, team):
+        initials = "".join([n[0] for n in member["name"].split()][:2])
+        col.markdown(f"""
+        <div class="team-card">
+            <div class="team-avatar" style="background:{member['color']};">{initials}</div>
+            <h4>{member['name']}</h4>
+            <p>{member['role']}</p>
+            <a class="icon-link" href="{member['email']}" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="20">
+            </a>
+            <a class="icon-link" href="{member['linkedin']}" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="20">
+            </a>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("<br><br>", unsafe_allow_html=True)  # space between team cards and about section
+
+   
+    -----------------# About Us section-------------
     st.markdown("""
     ## About Us  
 
