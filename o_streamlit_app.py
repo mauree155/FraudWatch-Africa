@@ -27,61 +27,90 @@ if page == "Home":
     """)
 
 # ------------------ About Page --------------
-elif page == "About":
-    st.title("About Us")
+import streamlit as st
 
-    st.markdown("## Meet the Team")
+st.title("👥 Meet the Team")
 
-    # --- Team Member 1 ---
-    st.markdown("**Maureen Akunna Okoro** – Data Analyst / Data Scientist (Team Lead)")
+# Card CSS styling
+st.markdown(
+    """
+    <style>
+    .team-card {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+    }
+    .team-card h3 {
+        margin-bottom: 5px;
+    }
+    .team-card p {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 10px;
+    }
+    .icon-link img {
+        margin: 0 8px;
+        transition: transform 0.2s;
+    }
+    .icon-link img:hover {
+        transform: scale(1.1);
+    }
+    </style>
+    """, unsafe_allow_html=True
+)
+
+# 3 columns
+col1, col2, col3 = st.columns(3)
+
+with col1:
     st.markdown(
         """
-        <a href="mailto:okoromaureen590@gmail.com" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" 
-            width="28" style="margin-right:10px;">
-        </a>
-        <a href="https://ng.linkedin.com/in/maureen-okoro-8a1972245" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
-            width="28">
-        </a>
-        """,
-        unsafe_allow_html=True
+        <div class="team-card">
+            <h3>Maureen Akunna Okoro</h3>
+            <p>Team Lead · Data Analyst / Scientist</p>
+            <a class="icon-link" href="mailto:okoromaureen590@gmail.com" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="28">
+            </a>
+            <a class="icon-link" href="https://ng.linkedin.com/in/maureen-okoro-8a1972245" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="28">
+            </a>
+        </div>
+        """, unsafe_allow_html=True
     )
 
-    st.write("---")
-
-    # --- Team Member 2 ---
-    st.markdown("**Masheia Dzimba** – Data Scientist")
+with col2:
     st.markdown(
         """
-        <a href="mailto:mdzimba@mail.yu.edu" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" 
-            width="28" style="margin-right:10px;">
-        </a>
-        <a href="https://www.linkedin.com/in/masheia-d-965099121" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
-            width="28">
-        </a>
-        """,
-        unsafe_allow_html=True
+        <div class="team-card">
+            <h3>Masheia Dzimba</h3>
+            <p>Data Scientist</p>
+            <a class="icon-link" href="mailto:mdzimba@mail.yu.edu" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="28">
+            </a>
+            <a class="icon-link" href="https://www.linkedin.com/in/masheia-d-965099121" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="28">
+            </a>
+        </div>
+        """, unsafe_allow_html=True
     )
 
-    st.write("---")
-
-    # --- Team Member 3 ---
-    st.markdown("**Nasiru Ibrahim** – Data Scientist")
+with col3:
     st.markdown(
         """
-        <a href="mailto:nasiruibrahim3034@gmail.com" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" 
-            width="28" style="margin-right:10px;">
-        </a>
-        <a href="https://www.linkedin.com/in/nasiru-ibrahim-89b489177" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
-            width="28">
-        </a>
-        """,
-        unsafe_allow_html=True
+        <div class="team-card">
+            <h3>Nasiru Ibrahim</h3>
+            <p>Data Scientist</p>
+            <a class="icon-link" href="mailto:nasiruibrahim3034@gmail.com" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="28">
+            </a>
+            <a class="icon-link" href="https://www.linkedin.com/in/nasiru-ibrahim-89b489177" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="28">
+            </a>
+        </div>
+        """, unsafe_allow_html=True
     )
 
     # --- About Section ---
