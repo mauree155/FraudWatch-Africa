@@ -30,45 +30,63 @@ if page == "Home":
 elif page == "About":
     st.title("👥 Meet the Team")
 
-    # Card CSS styling
     st.markdown(
         """
         <style>
         .team-card {
-            background-color: #f9f9f9;
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 20px;
+            background: linear-gradient(145deg, #ffffff, #f3f3f3);
+            border-radius: 16px;
+            padding: 25px;
             text-align: center;
-            box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease-in-out;
+        }
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #4a90e2;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            margin: 0 auto 12px auto;
         }
         .team-card h3 {
-            margin-bottom: 5px;
+            margin-bottom: 6px;
+            font-size: 18px;
+            color: #222;
         }
         .team-card p {
             font-size: 14px;
-            color: #666;
-            margin-bottom: 10px;
+            color: #555;
+            margin-bottom: 14px;
         }
         .icon-link img {
             margin: 0 8px;
             transition: transform 0.2s;
         }
         .icon-link img:hover {
-            transform: scale(1.1);
+            transform: scale(1.15);
         }
         </style>
         """,
         unsafe_allow_html=True
     )
 
-    # 3 columns
     col1, col2, col3 = st.columns(3)
 
     with col1:
         st.markdown(
             """
             <div class="team-card">
+                <div class="avatar">MO</div>
                 <h3>Maureen Akunna Okoro</h3>
                 <p>Team Lead · Data Analyst / Scientist</p>
                 <a class="icon-link" href="mailto:okoromaureen590@gmail.com" target="_blank">
@@ -86,6 +104,7 @@ elif page == "About":
         st.markdown(
             """
             <div class="team-card">
+                <div class="avatar" style="background-color:#27ae60;">MD</div>
                 <h3>Masheia Dzimba</h3>
                 <p>Data Scientist</p>
                 <a class="icon-link" href="mailto:mdzimba@mail.yu.edu" target="_blank">
@@ -103,6 +122,7 @@ elif page == "About":
         st.markdown(
             """
             <div class="team-card">
+                <div class="avatar" style="background-color:#8e44ad;">NI</div>
                 <h3>Nasiru Ibrahim</h3>
                 <p>Data Scientist</p>
                 <a class="icon-link" href="mailto:nasiruibrahim3034@gmail.com" target="_blank">
@@ -115,6 +135,7 @@ elif page == "About":
             """,
             unsafe_allow_html=True
         )
+
 
     # --- About Section ---
     st.markdown("""
