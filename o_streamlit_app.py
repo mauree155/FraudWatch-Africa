@@ -30,7 +30,7 @@ if page == "Home":
     """)
 
 # ------------------ About Page ----------------
-# ------------------ About Page --------------
+
 elif page == "About":
     st.title("👥 Meet the Team")
 
@@ -151,7 +151,7 @@ elif page == "About":
     st.markdown("<br><br>", unsafe_allow_html=True)  # space between team cards and about section
 
    
-    -----------------# About Us section-------------
+    #-------------About Us section-------------
     st.markdown("""
     ## About Us  
 
