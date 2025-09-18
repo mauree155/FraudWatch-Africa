@@ -206,7 +206,7 @@ The **FraudWatch Africa** dashboard provides an interactive interface for explor
   <a href="https://fraudwatch-africa.streamlit.app" target="_blank">
     <img src="https://img.shields.io/badge/Streamlit-Dashboard-red?style=for-the-badge&logo=streamlit" alt="Streamlit App"/>
   </a>
-  <a href="https://kenya-fraud-detection.onrender.com" target="_blank">
+  <a href="https://kenya-fraud-detection.onrender.com/docs" target="_blank">
     <img src="https://img.shields.io/badge/FastAPI-Endpoint-green?style=for-the-badge&logo=fastapi" alt="FastAPI Endpoint"/>
   </a>
 </p>
@@ -311,6 +311,7 @@ Special thanks to our mentors and teammates for their guidance and collaboration
 - **Maureen Akunna Okoro** – Team Lead | Data Analyst / Data Scientist  
 - **Masheida Dzimaba** – Data Scientist  
 - **Nasiru Ibrahim** – Data Analyst
+
 
 
 
