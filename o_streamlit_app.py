@@ -17,6 +17,20 @@ st.set_page_config(
 page = st.sidebar.selectbox("Navigate", ["Home", "Dashboard", "About"])
 
 # ------------------ Home Page ----------------
+if page == "Home":
+    st.title("💳 Kenya Fraud Detection")
+    st.image(
+        "assets/fraud_detection_banner.png", 
+       use_container_width=True
+    )
+    st.markdown("""
+    Welcome! This is your one-stop dashboard for detecting anomalies 
+    and fraudulent transactions in Kenya. Explore dashboards, predict transactions, 
+    and download reports with ease.
+    """)
+
+
+# ------------------ About Page --------------
 elif page == "About":
     st.title("👥 Meet the Team")
 
