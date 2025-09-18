@@ -231,7 +231,13 @@ The **FraudWatch Africa** dashboard provides an interactive interface for explor
 
 <img width="1595" height="738" alt="screen 1" src="https://github.com/user-attachments/assets/5f0620c7-6330-4f5f-bdd8-57243e01e674" />
 
-![Uploading screen 2 fraud.PNG…]()
+
+<img width="1595" height="738" alt="screen 2 fraud" src="https://github.com/user-attachments/assets/02a555ce-3540-43ba-bc8f-634f19aaa63e" />
+
+
+<img width="1595" height="382" alt="screen 3 fraud" src="https://github.com/user-attachments/assets/d011dfff-8bf6-485d-9d3f-2d2919f6f269" />
+
+
 
 
 
@@ -308,6 +314,7 @@ Special thanks to our mentors and teammates for their guidance and collaboration
 - **Maureen Akunna Okoro** – Team Lead | Data Analyst / Data Scientist  
 - **Masheida Dzimaba** – Data Scientist  
 - **Nasiru Ibrahim** – Data Analyst
+
 
 
 
