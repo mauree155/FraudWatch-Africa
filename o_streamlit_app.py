@@ -27,8 +27,7 @@ if page == "Home":
     """)
 
 # ------------------ About Page --------------
-import streamlit as st
-
+elif page == "About":
 st.title("👥 Meet the Team")
 
 # Card CSS styling
