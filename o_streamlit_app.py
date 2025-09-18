@@ -21,7 +21,7 @@ if page == "Home":
     st.title("💳 Kenya Fraud Detection")
     st.image(
         "assets/fraud_detection_banner.png", 
-       use_container_width=True
+        use_container_width=True
     )
     st.markdown("""
     Welcome! This is your one-stop dashboard for detecting anomalies 
@@ -29,8 +29,7 @@ if page == "Home":
     and download reports with ease.
     """)
 
-
-# ------------------ About Page --------------
+# ------------------ About Page ----------------
 elif page == "About":
     st.title("👥 Meet the Team")
 
@@ -60,28 +59,28 @@ elif page == "About":
     ]
 
     # About Us section
-st.markdown("""
-## About Us  
+    st.markdown("""
+    ## About Us  
 
-We are a team of **Data Science and Analytics Interns at Dataverse Africa**, passionate about transforming complex data into practical solutions.  
-Our work focuses on **fraud detection, anomaly monitoring, and turning raw information into insights** that drive meaningful impact.  
+    We are a team of **Data Science and Analytics Interns at Dataverse Africa**, passionate about transforming complex data into practical solutions.  
+    Our work focuses on **fraud detection, anomaly monitoring, and turning raw information into insights** that drive meaningful impact.  
 
-### What We Do  
-- Detect patterns and anomalies using advanced data science techniques  
-- Build tools that strengthen fraud prevention and risk management  
-- Deliver actionable insights through dashboards and data storytelling  
+    ### What We Do  
+    - Detect patterns and anomalies using advanced data science techniques  
+    - Build tools that strengthen fraud prevention and risk management  
+    - Deliver actionable insights through dashboards and data storytelling  
 
-### Our Journey  
-Through this project, we have:  
-- Gained hands-on experience in fraud detection, machine learning, and analytics  
-- Collaborated effectively as a multidisciplinary team  
-- Developed skills combining research, coding, and storytelling  
+    ### Our Journey  
+    Through this project, we have:  
+    - Gained hands-on experience in fraud detection, machine learning, and analytics  
+    - Collaborated effectively as a multidisciplinary team  
+    - Developed skills combining research, coding, and storytelling  
 
----
-
-### Our Commitment  
-We are committed to **continuous learning, innovation, and creating solutions** that empower organizations and communities across Africa and beyond.  
-""")
+    ---
+    
+    ### Our Commitment  
+    We are committed to **continuous learning, innovation, and creating solutions** that empower organizations and communities across Africa and beyond.  
+    """)
 
 # ------------------ Dashboard & Predictions ----------------
 elif page == "Dashboard":
@@ -98,6 +97,7 @@ elif page == "Dashboard":
     selected_users = st.sidebar.multiselect("User Type", user_types, default=list(user_types))
 
     # ------------------ Fetch filtered transactions from FastAPI ------------------
+    @st.cache_data
     def get_filtered_transactions(types, locations, users, limit=1000):
         params = {
             "transaction_type": types,
@@ -107,13 +107,15 @@ elif page == "Dashboard":
         }
         try:
             response = requests.get("https://kenya-fraud-detection.onrender.com/transactions", params=params)
+            response.raise_for_status()
             df = pd.DataFrame(response.json())
             return df
         except Exception as e:
             st.error(f"Error fetching filtered transactions: {e}")
             return pd.DataFrame()
 
-    filtered_df = get_filtered_transactions(selected_types, selected_locations, selected_users)
+    with st.spinner("Fetching filtered transactions..."):
+        filtered_df = get_filtered_transactions(selected_types, selected_locations, selected_users)
 
     # ------------------ Tabs ------------------
     tab1, tab2, tab3 = st.tabs(["📊 Dashboard", "💡 Predict Transaction", "📦 Batch Predict"])
@@ -173,7 +175,6 @@ elif page == "Dashboard":
         multiple_accounts_input = st.selectbox("Has Multiple Accounts?", ["No", "Yes"])
 
         if st.button("Predict Transaction"):
-            # ✅ Map Yes/No -> 0/1
             input_data = {
                 "transaction_type": transaction_type_input,
                 "amount": amount_input,
@@ -186,17 +187,19 @@ elif page == "Dashboard":
                 "has_multiple_accounts": 1 if multiple_accounts_input == "Yes" else 0,
             }
 
-            try:
-                response = requests.post("https://kenya-fraud-detection.onrender.com/predict", json=input_data)
-                result = response.json()
+            with st.spinner("Predicting..."):
+                try:
+                    response = requests.post("https://kenya-fraud-detection.onrender.com/predict", json=input_data)
+                    response.raise_for_status()
+                    result = response.json()
 
-                if result["is_anomaly"] == 1:
-                    st.error(f"⚠️ This transaction can be a fraud! Score: {result['anomaly_score']:.3f}")
-                else:
-                    st.success(f"✅ This transaction looks normal. Score: {result['anomaly_score']:.3f}")
+                    if result["is_anomaly"] == 1:
+                        st.error(f"⚠️ This transaction can be a fraud! Score: {result['anomaly_score']:.3f}")
+                    else:
+                        st.success(f"✅ This transaction looks normal. Score: {result['anomaly_score']:.3f}")
 
-            except Exception as e:
-                st.error(f"Error calling API: {e}")
+                except Exception as e:
+                    st.error(f"Error calling API: {e}")
 
     # ------------------ Tab 3: Batch Predict ------------------
     with tab3:
@@ -210,33 +213,32 @@ elif page == "Dashboard":
             st.dataframe(batch_df.head())
 
             if st.button("Predict Batch"):
-                # ✅ Convert Yes/No to 0/1 if present
                 mapping = {"Yes": 1, "No": 0}
                 for col in ["is_foreign_number", "is_sim_recently_swapped", "has_multiple_accounts"]:
                     if col in batch_df.columns:
                         batch_df[col] = batch_df[col].map(mapping).fillna(batch_df[col])
 
-                # Convert CSV rows to list of dicts for FastAPI
                 transactions_list = batch_df.to_dict(orient="records")
                 batch_input = {"transactions": transactions_list}
 
-                try:
-                    response = requests.post("https://kenya-fraud-detection.onrender.com/predict_batch", json=batch_input)
-                    results = response.json()["results"]
+                with st.spinner("Predicting batch..."):
+                    try:
+                        response = requests.post("https://kenya-fraud-detection.onrender.com/predict_batch", json=batch_input)
+                        response.raise_for_status()
+                        results = response.json()["results"]
 
-                    # Add predictions back to DataFrame
-                    batch_df['is_anomaly'] = [r['is_anomaly'] for r in results]
-                    batch_df['anomaly_score'] = [r['anomaly_score'] for r in results]
+                        batch_df['is_anomaly'] = [r['is_anomaly'] for r in results]
+                        batch_df['anomaly_score'] = [r['anomaly_score'] for r in results]
 
-                    st.success("Batch predictions completed!")
-                    st.dataframe(batch_df.head())
+                        st.success("Batch predictions completed!")
+                        st.dataframe(batch_df.head())
 
-                    st.download_button(
-                        "Download Batch Predictions CSV",
-                        batch_df.to_csv(index=False).encode(),
-                        "batch_predictions.csv",
-                        "text/csv"
-                    )
+                        st.download_button(
+                            "Download Batch Predictions CSV",
+                            batch_df.to_csv(index=False).encode(),
+                            "batch_predictions.csv",
+                            "text/csv"
+                        )
 
-                except Exception as e:
-                    st.error(f"Error calling API: {e}")
+                    except Exception as e:
+                        st.error(f"Error calling API: {e}")
