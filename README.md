@@ -9,7 +9,7 @@
 4. [Methodology](#methodology)
    - [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
    - [Data Preprocessing](#data-preprocessing)
-   - [Modeling: Anomaly Detection](#modeling:-anomaly-detection)
+   - [Modeling](#modeling)
 5. [Results and Discussion](#results-and-discussion)
 6. [Dashboard & Deployment](#dashboard--deployment)
 7. [Tools & Technologies](#tools--technologies)
@@ -96,7 +96,7 @@ This project was executed using **Python**, with analysis performed in **Jupyter
   - Added `time_of_day` (morning, afternoon, evening, night) for better interpretability.  
 - **Feature Scaling**: Applied scaling to numerical features to improve model stability and training efficiency.  
 
-### Modeling: Anomaly Detection
+### Modeling:
 
 - **Algorithm Used**: `Isolation Forest`, an unsupervised model for anomaly detection.  
 - **Training Details**:  
@@ -308,6 +308,7 @@ Special thanks to our mentors and teammates for their guidance and collaboration
 - **Maureen Akunna Okoro** – Team Lead | Data Analyst / Data Scientist  
 - **Masheida Dzimaba** – Data Scientist  
 - **Nasiru Ibrahim** – Data Analyst
+
 
 
 
