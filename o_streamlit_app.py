@@ -17,50 +17,62 @@ st.set_page_config(
 page = st.sidebar.selectbox("Navigate", ["Home", "Dashboard", "About"])
 
 # ------------------ Home Page ----------------
-if page == "Home":
-    st.title("💳 Kenya Fraud Detection")
-    st.image("assets/fraud_detection_banner.png", use_container_width=True)
-    st.markdown("""
-    Welcome!! This is your one-stop dashboard for detecting anomalies 
-    and fraudulent transactions in Kenya. Explore dashboards, predict transactions, 
-    and download reports with ease.
-    """)
-
-# ------------------ About Page --------------
 elif page == "About":
     st.title("👥 Meet the Team")
 
+    # Team members
+    team = [
+        {
+            "name": "Maureen Akunna Okoro",
+            "role": "Team Lead · Data Analyst / Scientist",
+            "email": "mailto:okoromaureen590@gmail.com",
+            "linkedin": "https://ng.linkedin.com/in/maureen-okoro-8a1972245"
+        },
+        {
+            "name": "Masheia Dzimba",
+            "role": "Data Scientist",
+            "email": "mailto:mdzimba@mail.yu.edu",
+            "linkedin": "https://www.linkedin.com/in/masheia-d-965099121"
+        },
+        {
+            "name": "Nasiru Ibrahim",
+            "role": "Data Analyst",
+            "email": "mailto:nasiruibrahim3034@gmail.com",
+            "linkedin": "https://www.linkedin.com/in/nasiru-ibrahim-89b489177"
+        }
+    ]
+
+    # Sleek CSS styling
     st.markdown(
         """
         <style>
         .team-card {
-            background: linear-gradient(145deg, #ffffff, #f3f3f3);
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
             border-radius: 16px;
-            padding: 25px;
+            padding: 24px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: transform 0.2s ease-in-out;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
         .team-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
         }
-        .avatar {
+        .team-avatar {
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background-color: #4a90e2;
+            background: #4a90e2;
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
             font-size: 20px;
-            margin: 0 auto 12px auto;
+            font-weight: 600;
+            margin: 0 auto 14px auto;
         }
-        .team-card h3 {
-            margin-bottom: 6px;
-            font-size: 18px;
+        .team-card h4 {
+            margin: 6px 0;
             color: #222;
         }
         .team-card p {
@@ -69,72 +81,36 @@ elif page == "About":
             margin-bottom: 14px;
         }
         .icon-link img {
-            margin: 0 8px;
+            margin: 0 6px;
             transition: transform 0.2s;
         }
         .icon-link img:hover {
-            transform: scale(1.15);
+            transform: scale(1.2);
         }
         </style>
         """,
         unsafe_allow_html=True
     )
 
-    col1, col2, col3 = st.columns(3)
+    # Layout
+    cols = st.columns(3)
 
-    with col1:
-        st.markdown(
-            """
-            <div class="team-card">
-                <div class="avatar">MO</div>
-                <h3>Maureen Akunna Okoro</h3>
-                <p>Team Lead · Data Analyst / Scientist</p>
-                <a class="icon-link" href="mailto:okoromaureen590@gmail.com" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="28">
-                </a>
-                <a class="icon-link" href="https://ng.linkedin.com/in/maureen-okoro-8a1972245" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="28">
-                </a>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+    for col, member in zip(cols, team):
+        initials = "".join([n[0] for n in member["name"].split()][:2])  # e.g. MO for Maureen Okoro
+        col.markdown(f"""
+        <div class="team-card">
+            <div class="team-avatar">{initials}</div>
+            <h4>{member['name']}</h4>
+            <p>{member['role']}</p>
+            <a class="icon-link" href="{member['email']}" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="26">
+            </a>
+            <a class="icon-link" href="{member['linkedin']}" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="26">
+            </a>
+        </div>
+        """, unsafe_allow_html=True)
 
-    with col2:
-        st.markdown(
-            """
-            <div class="team-card">
-                <div class="avatar" style="background-color:#27ae60;">MD</div>
-                <h3>Masheia Dzimba</h3>
-                <p>Data Scientist</p>
-                <a class="icon-link" href="mailto:mdzimba@mail.yu.edu" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="28">
-                </a>
-                <a class="icon-link" href="https://www.linkedin.com/in/masheia-d-965099121" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="28">
-                </a>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-    with col3:
-        st.markdown(
-            """
-            <div class="team-card">
-                <div class="avatar" style="background-color:#8e44ad;">NI</div>
-                <h3>Nasiru Ibrahim</h3>
-                <p>Data Scientist</p>
-                <a class="icon-link" href="mailto:nasiruibrahim3034@gmail.com" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="28">
-                </a>
-                <a class="icon-link" href="https://www.linkedin.com/in/nasiru-ibrahim-89b489177" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="28">
-                </a>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
 
 
     # --- About Section ---
