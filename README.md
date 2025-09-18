@@ -1,19 +1,23 @@
 # FraudWatch Africa: Unsupervised Mobile Money Transaction Fraud Detection
 
 ## Table of Contents   
-1. [Project Background](#project-background)  
-2. [Dataset](#dataset)  
-3. [Methodology](#methodology)  
-   - [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)  
-   - [Data Preprocessing](#data-preprocessing)  
-   - [Modeling](#modeling)  
-4. [Results & Insights](#results--insights)  
-4. [Dashboard & Deployment](#dashboard--deployment)  
-8. [Tools & Technologies](#tools--technologies)  
-9. [Conclusion](#conclusion)  
-10. [Future Work](#future-work)  
-11. [How to Run the Project](#how-to-run-the-project)  
-12. [Acknowledgments](#acknowledgments)
+1. [Project Background](#1-project-background)
+   - [Mobile Money in Africa](#11-mobile-money-in-africa)
+   - [The Fraud Detection Challenge](#12-the-fraud-detection-challenge)
+2. [Project Goal](#2-project-goal)
+3. [Key Features](#3-key-features)
+4. [Methodology](#4-methodology)
+   - [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+   - [Data Preprocessing](#data-preprocessing)
+   - [Modeling](#modeling)
+5. [Results & Insights](#5-results--insights)
+6. [Dashboard & Deployment](#6-dashboard--deployment)
+7. [Tools & Technologies](#7-tools--technologies)
+8. [Conclusion](#8-conclusion)
+9. [Future Work](#9-future-work)
+10. [How to Run the Project](#10-how-to-run-the-project)
+11. [Acknowledgments](#11-acknowledgments)
+
 
 ## 1. Project Background  
 
@@ -36,6 +40,7 @@ Together, these factors make mobile money ecosystems a **prime target for frauds
 Fraudulent transactions are notoriously **difficult to detect** because they rarely follow predictable patterns. Traditional supervised machine learning approaches require **labeled fraudulent data**, which is often scarce or unavailable.  
 
 To address this challenge, this project leverages **unsupervised learning**, where the model learns to identify **outliers** that deviate from normal transaction behavior — a promising approach in fraud detection for data-scarce environments.  
+
 ## 2. Project Goal  
 
 This project aims to design a **scalable, real-time fraud detection system** tailored to mobile money platforms in Africa.  
@@ -144,8 +149,6 @@ This project was executed using **Python**, with analysis performed in **Jupyter
 ![Transaction Amount by Location](https://github.com/user-attachments/assets/3ee878bd-6b66-4aa5-a55e-36be57c546e5)
 
 
----
-
 ### 6.4 User and Device Insights
 
 - The majority of anomalies originate from **agents** rather than individual users (386 out of 500 anomalies).  
@@ -229,7 +232,7 @@ The **FraudWatch Africa** dashboard provides an interactive interface for explor
 
 Here’s an overview of the tools and technologies used in this project:  
 
-![Fraud Detection Stack]([fraud_detection_stack.png](https://github.com/mauree155/FraudWatch-Africa/blob/main/assets/Project%20tools%20))
+![Fraud Detection Stack](https://github.com/mauree155/FraudWatch-Africa/blob/main/assets/Project%20tools%20)
 
 ## 9. Conclusion  
 
@@ -289,15 +292,16 @@ streamlit run app/streamlit_app.py
 Dashboard available at: http://localhost:8501
 
 
-## 11. cknowledgments  
+## 11. Acknowledgments  
 
 This project was carried out as part of the **Dataverse Africa Internship Program**.  
 Special thanks to our mentors and teammates for their guidance and collaboration.  
 
 ### 👥 Team Members  
-- **[Maureen Akunna Okoro](https://www.linkedin.com/in/maureenokoro)** – Team Lead | Data Analyst / Data Scientist  
+- **Maureen Akunna Okoro** – Team Lead | Data Analyst / Data Scientist  
 - **Masheida Dzimaba** – Data Scientist  
-- **Nasiru Ibrahim** – Data Scientist  
+- **Nasiru Ibrahim** – Data Analyst
+
 
 
 
