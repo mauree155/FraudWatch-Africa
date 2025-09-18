@@ -34,25 +34,28 @@ if page == "Home":
 elif page == "About":
     st.title("👥 Meet the Team")
 
-    # Team members
+    # Team members with custom gradients
     team = [
         {
             "name": "Maureen Akunna Okoro",
             "role": "Team Lead · Data Analyst / Scientist",
             "email": "mailto:okoromaureen590@gmail.com",
-            "linkedin": "https://ng.linkedin.com/in/maureen-okoro-8a1972245"
+            "linkedin": "https://ng.linkedin.com/in/maureen-okoro-8a1972245",
+            "color": "linear-gradient(135deg, #6a11cb 0%, #2575fc 100%)"
         },
         {
             "name": "Masheia Dzimba",
             "role": "Data Scientist",
             "email": "mailto:mdzimba@mail.yu.edu",
-            "linkedin": "https://www.linkedin.com/in/masheia-d-965099121"
+            "linkedin": "https://www.linkedin.com/in/masheia-d-965099121",
+            "color": "linear-gradient(135deg, #ff512f 0%, #dd2476 100%)"
         },
         {
             "name": "Nasiru Ibrahim",
             "role": "Data Analyst",
             "email": "mailto:nasiruibrahim3034@gmail.com",
-            "linkedin": "https://www.linkedin.com/in/nasiru-ibrahim-89b489177"
+            "linkedin": "https://www.linkedin.com/in/nasiru-ibrahim-89b489177",
+            "color": "linear-gradient(135deg, #00c6ff 0%, #0072ff 100%)"
         }
     ]
 
@@ -61,45 +64,47 @@ elif page == "About":
         """
         <style>
         .team-card {
-            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-            border-radius: 16px;
-            padding: 24px;
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 18px;
             text-align: center;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
+            max-width: 260px;
+            margin: auto;
         }
         .team-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
         }
         .team-avatar {
-            width: 60px;
-            height: 60px;
+            width: 54px;
+            height: 54px;
             border-radius: 50%;
-            background: #4a90e2;
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
-            margin: 0 auto 14px auto;
+            margin: 0 auto 10px auto;
         }
         .team-card h4 {
             margin: 6px 0;
+            font-size: 16px;
             color: #222;
         }
         .team-card p {
-            font-size: 14px;
+            font-size: 13px;
             color: #555;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
         .icon-link img {
-            margin: 0 6px;
+            margin: 0 5px;
             transition: transform 0.2s;
         }
         .icon-link img:hover {
-            transform: scale(1.2);
+            transform: scale(1.15);
         }
         </style>
         """,
@@ -110,21 +115,20 @@ elif page == "About":
     cols = st.columns(3)
 
     for col, member in zip(cols, team):
-        initials = "".join([n[0] for n in member["name"].split()][:2])  # e.g. MO for Maureen Okoro
+        initials = "".join([n[0] for n in member["name"].split()][:2])  # e.g. MO
         col.markdown(f"""
         <div class="team-card">
-            <div class="team-avatar">{initials}</div>
+            <div class="team-avatar" style="background:{member['color']};">{initials}</div>
             <h4>{member['name']}</h4>
             <p>{member['role']}</p>
             <a class="icon-link" href="{member['email']}" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="26">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="24">
             </a>
             <a class="icon-link" href="{member['linkedin']}" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="26">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="24">
             </a>
         </div>
         """, unsafe_allow_html=True)
-
 
 
     # --- About Section ---
