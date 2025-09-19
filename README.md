@@ -1,4 +1,4 @@
-# FraudWatch Africa: Unsupervised Mobile Money Transaction Fraud Detection
+# FraudWatch Africa: Detecting Fraud in Mobile Money Transactions with Unsupervised Learning
 
 ## Table of Contents   
 1. [Project Background](#project-background)
@@ -312,6 +312,7 @@ Special thanks to our mentors and teammates for their guidance and collaboration
 - **Maureen Akunna Okoro** – Team Lead | Data Analyst / Data Scientist  
 - **Masheida Dzimaba** – Data Scientist  
 - **Nasiru Ibrahim** – Data Analyst
+
 
 
 
